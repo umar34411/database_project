@@ -1,15 +1,30 @@
 import 'react-native-gesture-handler';
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState ,useEffect } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import MainAuthNavigator from '../Navigation/auth/MainAuthNavigator';
-
+import MainAppNavigator from '../Navigation/app/MainAppNavigator'
 
 const basicInfoContext=createContext();
 
 export default function Main() {
 
-  const [token, settoken] = useState('this is token')
-  const [email, setemail] = useState("umar")
+  const [token, settoken] = useState()
+  const [email, setemail] = useState()
+  
+
+const initializer=async()=>{
+  const temp=await AsyncStorage.getItem("token");
+  settoken(temp)
+   
+}
+
+   useEffect(() => {
+     
+    initializer()
+      
+     
+   }, [])
 
   const basicInfo = {
     token,
@@ -19,16 +34,22 @@ export default function Main() {
   }
 
   
+  
 
-
+  if(!token || token===null)
+  {
   return (
-
     <basicInfoContext.Provider value={basicInfo}>
     <MainAuthNavigator />
     </basicInfoContext.Provider>
-   
-
-  )
+  )}
+  else{
+    return(
+    <basicInfoContext.Provider value={basicInfo}>
+    <MainAppNavigator />
+    </basicInfoContext.Provider>
+    )
+  }
 }
 
 export {basicInfoContext}
