@@ -47,6 +47,7 @@ export default function Login() {
                     await info.setemail(email);
                     await AsyncStorage.setItem('token', response);
                     await AsyncStorage.setItem('email', email);
+                    console.log(response)
                     
                     
 

@@ -14,8 +14,10 @@ export default function Main() {
   
 
 const initializer=async()=>{
-  const temp=await AsyncStorage.getItem("token");
-  settoken(temp)
+  const temptoken=await AsyncStorage.getItem("token");
+  settoken(temptoken)
+  const tempemail=await AsyncStorage.getItem("email");
+  setemail(tempemail)
    
 }
 

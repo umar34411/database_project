@@ -11,7 +11,7 @@ export default function CompletePost({ownerImage,ownerName,email,postTitle,postI
            <AccountComponent image={ownerImage} name={ownerName} email={email}/>
            <View style={styles.postContainer}>
             {postTitle && <Text style={styles.title}>{postTitle}</Text>}
-            {postImage && <Image source={ postImage } style={styles.postImage}/> }
+            {postImage && <Image source={ {uri:postImage} } style={styles.postImage}/> }
            </View>
 
         </View>

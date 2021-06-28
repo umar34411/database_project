@@ -3,9 +3,12 @@ import { View, Text , StyleSheet ,Image} from 'react-native'
 import { colors, images } from '../utils'
 
 export default function AccountComponent({image,name,email}) {
+
+    
+
     return (
         <View style={styles.container}>
-            <Image source={image} style={styles.profile}/>
+            <Image source={{uri:image}} style={styles.profile}/>
             <View style={styles.infoContainer}>
               <Text style={styles.name}>
                   {name}

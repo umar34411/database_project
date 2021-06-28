@@ -49,7 +49,8 @@ export default function Signup2({ route }) {
 
 
         ImagePicker.launchImageLibrary(options = {
-            mediaType: 'photo'
+            mediaType: 'photo',
+            quality: 0.5
         }, async (res) => {
 
             let imgs = res.assets[0].uri;
@@ -132,7 +133,7 @@ export default function Signup2({ route }) {
                     await info.setemail(email);
                     await AsyncStorage.setItem('token', response);
                     await AsyncStorage.setItem('email', email);
-
+                    console.log(response)
                 }
             }
         ).catch(

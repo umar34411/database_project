@@ -2,10 +2,10 @@ import React from 'react'
 import { View, Text , StyleSheet ,TextInput} from 'react-native'
 import colors from '../utils/colors'
 
-export default function InputField({placeholder ,handleChange ,...otherProps}) {
+export default function InputField({placeholder ,value,handleChange ,...otherProps}) {
     return (
         <View style={styles.container}>
-            <TextInput autoCapitalize='none' placeholder={placeholder} onChangeText={handleChange} style={styles.input} {...otherProps}  />
+            <TextInput autoCapitalize='none' value={value} placeholder={placeholder} onChangeText={handleChange} style={styles.input} {...otherProps}  />
         </View>
     )
 }
